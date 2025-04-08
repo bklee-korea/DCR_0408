@@ -1,7 +1,108 @@
-<div class="nav-buttons">
-    <a href="index.html">전체 DCR 요약</a>
-    <a href="dcr_young_20_to_25.html">청년기(20대초반→20대후반)</a>
-    <a href="dcr_adult_30_to_35.html">중년기(30대초반→30대후반)</a>
-    <a href="dcr_elderly_65_to_70.html">노년기(60대후반→70대초반)</a>
-    <a href="dcr_type.html">연령별 DCR(1기준)에 따른 유형 구분</a>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DCR 분석 대시보드</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>인구 코호트 비율(DCR) 분석 대시보드</h1>
+    
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'AllDCR')">모든 연령대 DCR</button>
+        <button class="tablinks" onclick="openTab(event, 'YoungDCR')">청년기(20대초반→20대후반)</button>
+        <button class="tablinks" onclick="openTab(event, 'AdultDCR')">중년기(30대초반→30대후반)</button>
+        <button class="tablinks" onclick="openTab(event, 'ElderlyDCR')">노년기(60대후반→70대초반)</button>
+    </div>
+    
+    <div id="AllDCR" class="tabcontent visible">
+        <h2>모든 연령대 DCR 분석 결과</h2>
+        <!-- 여기에 모든 연령대 DCR 내용 -->
+        <!-- 다른 HTML에서 내용을 복사하여 붙여넣기 -->
+    </div>
+    
+    <div id="YoungDCR" class="tabcontent">
+        <h2>청년기(20대초반→20대후반) DCR 분석 결과</h2>
+        <!-- 여기에 청년기 DCR 내용 -->
+    </div>
+    
+    <div id="AdultDCR" class="tabcontent">
+        <h2>중년기(30대초반→30대후반) DCR 분석 결과</h2>
+        <!-- 여기에 중년기 DCR 내용 -->
+    </div>
+    
+    <div id="ElderlyDCR" class="tabcontent">
+        <h2>노년기(60대후반→70대초반) DCR 분석 결과</h2>
+        <!-- 여기에 노년기 DCR 내용 -->
+    </div>
+    
+    <script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        
+        // 모든 탭 내용 숨기기
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("visible");
+        }
+        
+        // 모든 탭 버튼 비활성화
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        
+        // 클릭된 탭 내용 보이기
+        document.getElementById(tabName).classList.add("visible");
+        
+        // 클릭된 버튼 활성화
+        evt.currentTarget.className += " active";
+    }
+    </script>
+</body>
+</html>
